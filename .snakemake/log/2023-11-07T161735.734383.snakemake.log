@@ -1,0 +1,35 @@
+Building DAG of jobs...
+Provided cores: 16
+Rules claiming more threads will be scaled down.
+Job stats:
+job                  count    min threads    max threads
+-----------------  -------  -------------  -------------
+count_words_abyss        1              1              1
+zipf_test                1              1              1
+total                    2              1              1
+
+Select jobs to execute...
+
+[Tue Nov  7 16:17:35 2023]
+rule count_words_abyss:
+    input: wordcount.py, books/abyss.txt
+    output: abyss.dat
+    jobid: 2
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+[Tue Nov  7 16:17:36 2023]
+Finished job 2.
+1 of 2 steps (50%) done
+Select jobs to execute...
+
+[Tue Nov  7 16:17:36 2023]
+rule zipf_test:
+    input: isles.dat, abyss.dat, last.dat
+    output: results.txt
+    jobid: 0
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+[Tue Nov  7 16:17:36 2023]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: C:\jade\thesis\snakemakeWorkshop\workflow-engines-lesson\.snakemake\log\2023-11-07T161735.734383.snakemake.log

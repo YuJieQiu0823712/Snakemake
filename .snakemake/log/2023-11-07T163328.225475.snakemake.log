@@ -1,0 +1,12 @@
+Building DAG of jobs...
+AmbiguousRuleException:
+Rules count_words and count_words_abyss are ambiguous for the file isles.dat.
+Consider starting rule output with a unique prefix, constrain your wildcards, or use the ruleorder directive.
+Wildcards:
+	count_words: book=isles
+	count_words_abyss: book=isles
+Expected input files:
+	count_words: wordcount.py books/isles.txt
+	count_words_abyss: wordcount.py books/isles.txtExpected output files:
+	count_words: isles.dat
+	count_words_abyss: isles.dat

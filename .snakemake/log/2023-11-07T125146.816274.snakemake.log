@@ -1,0 +1,3 @@
+Building DAG of jobs...
+Provided cores: 16
+Rules claiming more threads will be scaled down.

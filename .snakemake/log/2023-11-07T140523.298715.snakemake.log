@@ -1,0 +1,22 @@
+Building DAG of jobs...
+Provided cores: 16
+Rules claiming more threads will be scaled down.
+Job stats:
+job            count    min threads    max threads
+-----------  -------  -------------  -------------
+count_words        1              1              1
+total              1              1              1
+
+Select jobs to execute...
+
+[Tue Nov  7 14:05:23 2023]
+rule count_words:
+    input: books/isles.txt
+    output: isles.dat
+    jobid: 0
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+[Tue Nov  7 14:05:23 2023]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: C:\jade\thesis\snakemakeWorkshop\workflow-engines-lesson\.snakemake\log\2023-11-07T140523.298715.snakemake.log

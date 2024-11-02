@@ -1,0 +1,82 @@
+Building DAG of jobs...
+Provided cores: 16
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count    min threads    max threads
+--------------  -------  -------------  -------------
+all                   1              1              1
+count_words           5              1              1
+create_archive        1              1              1
+make_plot             5              1              1
+zipf_test             1              1              1
+total                13              1              1
+
+Select jobs to execute...
+
+[Wed Nov  8 11:24:31 2023]
+rule count_words:
+    input: wordcount.py, books/isles.txt
+    output: dats/isles.dat
+    jobid: 5
+    wildcards: book=isles
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+
+[Wed Nov  8 11:24:31 2023]
+rule count_words:
+    input: wordcount.py, books/gutenberg.txt
+    output: dats/gutenberg.dat
+    jobid: 4
+    wildcards: book=gutenberg
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+
+[Wed Nov  8 11:24:31 2023]
+rule count_words:
+    input: wordcount.py, books/last.txt
+    output: dats/last.dat
+    jobid: 6
+    wildcards: book=last
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+
+[Wed Nov  8 11:24:31 2023]
+rule count_words:
+    input: wordcount.py, books/abyss.txt
+    output: dats/abyss.dat
+    jobid: 3
+    wildcards: book=abyss
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+
+[Wed Nov  8 11:24:31 2023]
+rule count_words:
+    input: wordcount.py, books/sierra.txt
+    output: dats/sierra.dat
+    jobid: 7
+    wildcards: book=sierra
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+[Wed Nov  8 11:24:31 2023]
+Error in rule count_words:
+    jobid: 4
+    output: dats/gutenberg.dat
+    shell:
+        python wordcount.py books/gutenberg.txt dats/gutenberg.dat
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Wed Nov  8 11:24:31 2023]
+Finished job 5.
+1 of 13 steps (8%) done
+[Wed Nov  8 11:24:31 2023]
+Finished job 3.
+2 of 13 steps (15%) done
+[Wed Nov  8 11:24:31 2023]
+Finished job 7.
+3 of 13 steps (23%) done
+[Wed Nov  8 11:24:31 2023]
+Finished job 6.
+4 of 13 steps (31%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: C:\jade\thesis\snakemakeWorkshop\workflow-engines-lesson\.snakemake\log\2023-11-08T112431.345570.snakemake.log

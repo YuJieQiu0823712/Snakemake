@@ -1,0 +1,193 @@
+Building DAG of jobs...
+Provided cores: 16
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count
+--------------  -------
+all                   1
+count_words           5
+create_archive        1
+make_plot             5
+zipf_test             1
+total                13
+
+Select jobs to execute...
+
+[Wed Nov  8 11:54:43 2023]
+rule count_words:
+    input: wordcount.py, books/last.txt
+    output: dats/last.dat
+    jobid: 5
+    reason: Missing output files: dats/last.dat
+    wildcards: book=last
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+
+[Wed Nov  8 11:54:43 2023]
+rule count_words:
+    input: wordcount.py, books/abyss.txt
+    output: dats/abyss.dat
+    jobid: 3
+    reason: Missing output files: dats/abyss.dat
+    wildcards: book=abyss
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+
+[Wed Nov  8 11:54:43 2023]
+rule count_words:
+    input: wordcount.py, books/isles.txt
+    output: dats/isles.dat
+    jobid: 4
+    reason: Missing output files: dats/isles.dat
+    wildcards: book=isles
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+
+[Wed Nov  8 11:54:43 2023]
+rule count_words:
+    input: wordcount.py, books/rabbit.txt
+    output: dats/rabbit.dat
+    jobid: 6
+    reason: Missing output files: dats/rabbit.dat
+    wildcards: book=rabbit
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+
+[Wed Nov  8 11:54:43 2023]
+rule count_words:
+    input: wordcount.py, books/sierra.txt
+    output: dats/sierra.dat
+    jobid: 7
+    reason: Missing output files: dats/sierra.dat
+    wildcards: book=sierra
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+[Wed Nov  8 11:54:43 2023]
+Finished job 6.
+1 of 13 steps (8%) done
+Select jobs to execute...
+
+[Wed Nov  8 11:54:43 2023]
+rule make_plot:
+    input: plotcount.py, dats/rabbit.dat
+    output: plots/rabbit.png
+    jobid: 11
+    reason: Missing output files: plots/rabbit.png; Input files updated by another job: dats/rabbit.dat
+    wildcards: book=rabbit
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+[Wed Nov  8 11:54:43 2023]
+Finished job 3.
+2 of 13 steps (15%) done
+[Wed Nov  8 11:54:43 2023]
+Finished job 4.
+3 of 13 steps (23%) done
+Select jobs to execute...
+
+[Wed Nov  8 11:54:43 2023]
+rule make_plot:
+    input: plotcount.py, dats/abyss.dat
+    output: plots/abyss.png
+    jobid: 8
+    reason: Missing output files: plots/abyss.png; Input files updated by another job: dats/abyss.dat
+    wildcards: book=abyss
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+
+[Wed Nov  8 11:54:43 2023]
+rule make_plot:
+    input: plotcount.py, dats/isles.dat
+    output: plots/isles.png
+    jobid: 9
+    reason: Missing output files: plots/isles.png; Input files updated by another job: dats/isles.dat
+    wildcards: book=isles
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+[Wed Nov  8 11:54:43 2023]
+Finished job 7.
+4 of 13 steps (31%) done
+Select jobs to execute...
+
+[Wed Nov  8 11:54:43 2023]
+rule make_plot:
+    input: plotcount.py, dats/sierra.dat
+    output: plots/sierra.png
+    jobid: 12
+    reason: Missing output files: plots/sierra.png; Input files updated by another job: dats/sierra.dat
+    wildcards: book=sierra
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+[Wed Nov  8 11:54:43 2023]
+Finished job 5.
+5 of 13 steps (38%) done
+Select jobs to execute...
+
+[Wed Nov  8 11:54:43 2023]
+rule zipf_test:
+    input: zipf_test.py, dats/abyss.dat, dats/isles.dat, dats/last.dat, dats/rabbit.dat, dats/sierra.dat
+    output: results.txt
+    jobid: 2
+    reason: Missing output files: results.txt; Input files updated by another job: dats/isles.dat, dats/sierra.dat, dats/abyss.dat, dats/rabbit.dat, dats/last.dat
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+
+[Wed Nov  8 11:54:43 2023]
+rule make_plot:
+    input: plotcount.py, dats/last.dat
+    output: plots/last.png
+    jobid: 10
+    reason: Missing output files: plots/last.png; Input files updated by another job: dats/last.dat
+    wildcards: book=last
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+[Wed Nov  8 11:54:43 2023]
+Finished job 2.
+6 of 13 steps (46%) done
+[Wed Nov  8 11:54:45 2023]
+[Wed Nov  8 11:54:45 2023]
+Error in rule make_plot:
+    jobid: 10
+    input: plotcount.py, dats/last.dat
+    output: plots/last.png
+    shell:
+        python plotcount.py dats/last.dat plots/last.png
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Error in rule make_plot:
+    jobid: 11
+    input: plotcount.py, dats/rabbit.dat
+    output: plots/rabbit.png
+    shell:
+        python plotcount.py dats/rabbit.dat plots/rabbit.png
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Wed Nov  8 11:54:45 2023]
+Error in rule make_plot:
+    jobid: 8
+    input: plotcount.py, dats/abyss.dat
+    output: plots/abyss.png
+    shell:
+        python plotcount.py dats/abyss.dat plots/abyss.png
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Wed Nov  8 11:54:45 2023]
+Error in rule make_plot:
+    jobid: 9
+    input: plotcount.py, dats/isles.dat
+    output: plots/isles.png
+    shell:
+        python plotcount.py dats/isles.dat plots/isles.png
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Wed Nov  8 11:54:45 2023]
+Error in rule make_plot:
+    jobid: 12
+    input: plotcount.py, dats/sierra.dat
+    output: plots/sierra.png
+    shell:
+        python plotcount.py dats/sierra.dat plots/sierra.png
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake\log\2023-11-08T115442.806998.snakemake.log

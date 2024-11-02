@@ -1,0 +1,46 @@
+Building DAG of jobs...
+Provided cores: 16
+Rules claiming more threads will be scaled down.
+Job stats:
+job                  count    min threads    max threads
+-----------------  -------  -------------  -------------
+count_words              1              1              1
+count_words_abyss        1              1              1
+dats                     1              1              1
+total                    3              1              1
+
+Select jobs to execute...
+
+[Tue Nov  7 15:06:30 2023]
+rule count_words:
+    input: books/isles.txt
+    output: isles.dat
+    jobid: 1
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+
+[Tue Nov  7 15:06:30 2023]
+rule count_words_abyss:
+    input: books/abyss.txt
+    output: abyss.dat
+    jobid: 2
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+[Tue Nov  7 15:06:30 2023]
+Finished job 1.
+1 of 3 steps (33%) done
+[Tue Nov  7 15:06:30 2023]
+Finished job 2.
+2 of 3 steps (67%) done
+Select jobs to execute...
+
+[Tue Nov  7 15:06:30 2023]
+localrule dats:
+    input: isles.dat, abyss.dat
+    jobid: 0
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+[Tue Nov  7 15:06:30 2023]
+Finished job 0.
+3 of 3 steps (100%) done
+Complete log: C:\jade\thesis\snakemakeWorkshop\workflow-engines-lesson\.snakemake\log\2023-11-07T150629.822794.snakemake.log

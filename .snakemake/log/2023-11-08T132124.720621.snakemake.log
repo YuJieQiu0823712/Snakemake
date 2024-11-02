@@ -1,0 +1,27 @@
+Building DAG of jobs...
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Provided resources: gpu=1
+Job stats:
+job               count    min threads    max threads
+--------------  -------  -------------  -------------
+all                   1              1              1
+count_words           4              4              4
+create_archive        1              1              1
+make_plot             4              1              1
+zipf_test             1              1              1
+total                11              1              4
+
+Select jobs to execute...
+
+[Wed Nov  8 13:21:24 2023]
+rule count_words:
+    input: wordcount.py, books/last.txt
+    output: dats/last.dat
+    jobid: 5
+    wildcards: book=last
+    threads: 4
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+RuleException in line 37 of C:\jade\thesis\snakemakeWorkshop\workflow-engines-lesson\Snakefile:
+NameError: The name 'thresds' is unknown in this context. Please make sure that you defined that variable. Also note that braces not used for variable access have to be escaped by repeating them, i.e. {{print $1}}

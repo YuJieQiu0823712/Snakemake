@@ -1,0 +1,137 @@
+Building DAG of jobs...
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count    min threads    max threads
+--------------  -------  -------------  -------------
+all                   1              1              1
+count_words           4              1              1
+create_archive        1              1              1
+make_plot             4              1              1
+zipf_test             1              1              1
+total                11              1              1
+
+Select jobs to execute...
+
+[Wed Nov  8 11:57:11 2023]
+rule count_words:
+    input: wordcount.py, books/last.txt
+    output: dats/last.dat
+    jobid: 5
+    wildcards: book=last
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+
+[Wed Nov  8 11:57:11 2023]
+rule count_words:
+    input: wordcount.py, books/sierra.txt
+    output: dats/sierra.dat
+    jobid: 6
+    wildcards: book=sierra
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+
+[Wed Nov  8 11:57:11 2023]
+rule count_words:
+    input: wordcount.py, books/abyss.txt
+    output: dats/abyss.dat
+    jobid: 3
+    wildcards: book=abyss
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+
+[Wed Nov  8 11:57:11 2023]
+rule count_words:
+    input: wordcount.py, books/isles.txt
+    output: dats/isles.dat
+    jobid: 4
+    wildcards: book=isles
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+[Wed Nov  8 11:57:11 2023]
+Finished job 4.
+1 of 11 steps (9%) done
+Select jobs to execute...
+
+[Wed Nov  8 11:57:11 2023]
+rule make_plot:
+    input: plotcount.py, dats/isles.dat
+    output: plots/isles.png
+    jobid: 8
+    wildcards: book=isles
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+[Wed Nov  8 11:57:11 2023]
+Finished job 6.
+2 of 11 steps (18%) done
+Select jobs to execute...
+
+[Wed Nov  8 11:57:11 2023]
+rule make_plot:
+    input: plotcount.py, dats/sierra.dat
+    output: plots/sierra.png
+    jobid: 10
+    wildcards: book=sierra
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+[Wed Nov  8 11:57:11 2023]
+Finished job 3.
+3 of 11 steps (27%) done
+Select jobs to execute...
+
+[Wed Nov  8 11:57:11 2023]
+rule make_plot:
+    input: plotcount.py, dats/abyss.dat
+    output: plots/abyss.png
+    jobid: 7
+    wildcards: book=abyss
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+[Wed Nov  8 11:57:11 2023]
+Finished job 5.
+4 of 11 steps (36%) done
+Select jobs to execute...
+
+[Wed Nov  8 11:57:11 2023]
+rule zipf_test:
+    input: zipf_test.py, dats/abyss.dat, dats/isles.dat, dats/last.dat, dats/sierra.dat
+    output: results.txt
+    jobid: 2
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+[Wed Nov  8 11:57:11 2023]
+Finished job 2.
+5 of 11 steps (45%) done
+Select jobs to execute...
+
+[Wed Nov  8 11:57:11 2023]
+rule make_plot:
+    input: plotcount.py, dats/last.dat
+    output: plots/last.png
+    jobid: 9
+    wildcards: book=last
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+[Wed Nov  8 11:57:12 2023]
+Finished job 10.
+6 of 11 steps (55%) done
+[Wed Nov  8 11:57:12 2023]
+Finished job 7.
+7 of 11 steps (64%) done
+[Wed Nov  8 11:57:12 2023]
+Finished job 8.
+8 of 11 steps (73%) done
+[Wed Nov  8 11:57:12 2023]
+Finished job 9.
+9 of 11 steps (82%) done
+Select jobs to execute...
+
+[Wed Nov  8 11:57:12 2023]
+rule create_archive:
+    input: results.txt, dats/abyss.dat, dats/isles.dat, dats/last.dat, dats/sierra.dat, plots/abyss.png, plots/isles.png, plots/last.png, plots/sierra.png
+    output: zipf_analysis.tar.gz
+    jobid: 1
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+RuleException in line 58 of C:\jade\thesis\snakemakeWorkshop\workflow-engines-lesson\Snakefile:
+NameError: The name 'inpput' is unknown in this context. Please make sure that you defined that variable. Also note that braces not used for variable access have to be escaped by repeating them, i.e. {{print $1}}

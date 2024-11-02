@@ -1,0 +1,24 @@
+Building DAG of jobs...
+Provided cores: 16
+Rules claiming more threads will be scaled down.
+Job stats:
+job            count    min threads    max threads
+-----------  -------  -------------  -------------
+count_words        1              1              1
+total              1              1              1
+
+Select jobs to execute...
+
+[Tue Nov  7 16:49:31 2023]
+rule count_words:
+    input: wordcount.py, books/sierra.txt
+    output: sierra.dat
+    jobid: 0
+    wildcards: book=sierra
+    resources: tmpdir=C:\Users\jade\AppData\Local\Temp
+
+python wordcount.py books/sierra.txt sierra.dat
+[Tue Nov  7 16:49:32 2023]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: C:\jade\thesis\snakemakeWorkshop\workflow-engines-lesson\.snakemake\log\2023-11-07T164931.684229.snakemake.log

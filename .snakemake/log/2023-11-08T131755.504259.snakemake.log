@@ -1,0 +1,2 @@
+SyntaxError in line 42 of C:\jade\thesis\snakemakeWorkshop\workflow-engines-lesson\Snakefile:
+Unexpected keyword thread in rule definition (Snakefile, line 42)

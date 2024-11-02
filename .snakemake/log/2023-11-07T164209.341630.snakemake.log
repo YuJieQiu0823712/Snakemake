@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 11 of C:\jade\thesis\snakemakeWorkshop\workflow-engines-lesson\Snakefile:
+Missing input files for rule dats:
+last.txt
